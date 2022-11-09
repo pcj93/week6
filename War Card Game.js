@@ -1,9 +1,9 @@
 //values that I had no idea how to do so made them into arrays
 const cardSuits= ["♠", "♣", "♥", "♦"]
-const cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"]
-const player1Points= []
-const player2Points= []
-// let playerSum = 0;
+const cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+// const player1Points= []
+// const player2Points= []
+let playerSum = 0;
 
 //classes that i used for Cards,Deck,Player
 class Deck {
@@ -19,9 +19,9 @@ class Deck {
     //     return this.cards.shift()
     // }
 
-     push(card){
-         this.cards.push(card)
-     }
+    //  push(card){
+    //      this.cards.push(card)
+    //  }
     
 
    shuffle() {
@@ -63,13 +63,6 @@ function deckShuffled(){
     })
 }
 
-// function array1(points) {
-//     playerSum = array1.reduce((previousValue, currentValue) => {
-//       return previousValue + currentValue;
-//     });
-//     return playerSum;
-// }
-
 //cards are being handed out with 26 per player
 //startWar()
 function startWar(){
@@ -89,17 +82,43 @@ console.log(playerOne, playerTwo)
  for (let i = 0; i < 26 ; i++) {
      console.log(testCard1.hand[i].value, testCard2.hand[i].value)
     if (testCard1.hand[i].value > testCard2.hand[i].value){
-              //console.log(testCard1.hand[i].value, testCard2.hand[i].value)
+              console.log("player 1 won")
                 testCard1.score += 1
               } else if (testCard2.hand[i].value > testCard1.hand[i].value){
-                 //console.log(testCard1,testCard2)
+                 console.log("player 2 won")
                  testCard2.score += 1
  } else{
-    testCard1.hand[i].value == testCard2.hand[i].value
-    return "Tie Draw"
+    console.log("Tie no points")
+    
  }
- console.log(testCard1.score, testCard2.score)
+ console.table({
+    player: playerOne.name,
+    score: testCard1.score,
+    "player number": 1,
+ });
+ console.table({
+    player:playerTwo.name,
+    score: testCard2.score,
+    "player number": 2,
+ })
  }
  }
 
+ function array1(score) {
+    playerSum = array1.reduce((previousValue, currentValue) => {
+      return previousValue + currentValue;
+    });
+    return playerSum
+}
+
+
+let playerOneTotalScore = array1(testCard1.score);
+let playerTwoTotalScore = array1(testCard2.score);
+if (playerOneTotalScore > playerTwoTotalScore) {
+    console.log(- "Game Over - Player One Wins with", playerOneTotalScore);
+} else if (playerTwoTotalScore > playerOneTotalScore) {
+  console.log(-"Game Over - Player Two Wins with", playerTwoTotalScore);
+} else {
+    console.log("-DRAW-")
+}
 startWar()
