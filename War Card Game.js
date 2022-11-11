@@ -102,23 +102,23 @@ console.log(playerOne, playerTwo)
     "player number": 2,
  })
  }
- }
+ 
 
- function array1(score) {
-    playerSum = array1.reduce((previousValue, currentValue) => {
+ function final(score) {
+    playerSum = score => {
       return previousValue + currentValue;
-    });
+    };
     return playerSum
 }
 
 
-let playerOneTotalScore = array1(testCard1.score);
-let playerTwoTotalScore = array1(testCard2.score);
+let playerOneTotalScore = playerSum.score;
+let playerTwoTotalScore = playerSum.score;
 if (playerOneTotalScore > playerTwoTotalScore) {
     console.log(- "Game Over - Player One Wins with", playerOneTotalScore);
 } else if (playerTwoTotalScore > playerOneTotalScore) {
   console.log(-"Game Over - Player Two Wins with", playerTwoTotalScore);
 } else {
-    console.log("-DRAW-")
+    console.log("DRAW")
 }
-startWar()
+}
