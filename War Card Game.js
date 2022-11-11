@@ -19,6 +19,7 @@ class Deck {
     //     return this.cards.shift()
     // }
 
+
     //  push(card){
     //      this.cards.push(card)
     //  }
@@ -122,3 +123,4 @@ if (playerOneTotalScore > playerTwoTotalScore) {
     console.log("DRAW")
 }
 }
+startWar() 
